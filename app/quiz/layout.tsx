@@ -1,28 +1,23 @@
-import Providers from '@/components/Providers';
-import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Appbar from '@/components/Appbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Civic Quiz',
 	description: 'USCIS Civic Quiz',
-	icons: {
-		icon: '/favicon.ico',
-	},
 };
 
-export default function RootLayout({
+export default function QuizLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang='en'>
-			<body className={inter.className}>
-				<Providers>{children}</Providers>
-			</body>
-		</html>
+		<div className={inter.className}>
+			<Appbar />
+			{children}
+		</div>
 	);
 }
